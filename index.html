@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>アウェイでも熱狂を、地元に。 ｜ SVリーグ × トワール パブリックビューイング共創プラン</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" />
+<style>
+  :root {
+    --purple-900: #1a0b3d;
+    --purple-800: #2a1465;
+    --purple-700: #3d1f8a;
+    --purple-600: #5b2db5;
+    --purple-500: #7a3fd4;
+    --purple-400: #9b6ee6;
+    --purple-300: #c4a8f2;
+    --purple-100: #ede4fb;
+    --purple-50:  #f7f2fe;
+    --navy-900: #0a0f2c;
+    --navy-700: #1a2654;
+    --ink: #0e0820;
+    --ink-2: #2c2440;
+    --muted: #6b6480;
+    --line: #e6e1f0;
+    --bg: #ffffff;
+    --bg-soft: #faf8fd;
+    --accent: #ffd84d;
+
+    --maxw: 1200px;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.7;
+    font-feature-settings: "palt" 1;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .num, .display {
+    font-family: "Inter", "Noto Sans JP", sans-serif;
+    font-feature-settings: "tnum" 1, "ss01" 1;
+    letter-spacing: -0.02em;
+  }
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+    letter-spacing: 0;
+  }
+
+  /* ========= NAV ========= */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    background: rgba(255,255,255,0.72);
+    border-bottom: 1px solid rgba(14,8,32,0.06);
+  }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; letter-spacing: 0.02em;
+  }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--purple-600), var(--purple-400));
+    display: grid; place-items: center;
+    color: white; font-weight: 900; font-family: "Inter"; font-size: 14px;
+  }
+  .brand-text { font-size: 14px; }
+  .brand-text small { color: var(--muted); font-weight: 500; margin-left: 6px; font-size: 11px; }
+  .nav-links { display: flex; gap: 22px; font-size: 13px; color: var(--ink-2); }
+  .nav-links a { text-decoration: none; opacity: 0.78; transition: opacity .2s; }
+  .nav-links a:hover { opacity: 1; color: var(--purple-600); }
+  @media (max-width: 820px) {
+    .nav-links { display: none; }
+  }
+
+  /* ========= HERO ========= */
+  .hero {
+    position: relative;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(155,110,230,0.22), transparent 60%),
+      radial-gradient(900px 500px at -10% 90%, rgba(91,45,181,0.35), transparent 60%),
+      linear-gradient(180deg, var(--purple-900) 0%, var(--purple-800) 40%, var(--navy-900) 100%);
+    color: white;
+    padding: 160px 28px 120px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; max-width: var(--maxw); margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 7px 14px; border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--purple-300);
+  }
+  .hero-eyebrow .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent);
+  }
+  .hero h1 {
+    margin-top: 26px;
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(180deg, #fff 0%, var(--purple-300) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero h1 .underline {
+    display: inline-block; position: relative;
+  }
+  .hero h1 .underline::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 8px;
+    background: var(--accent); border-radius: 4px;
+    transform: skewX(-8deg);
+  }
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 16px; color: rgba(255,255,255,0.78); line-height: 1.8; max-width: 500px;
+  }
+  .hero-meta {
+    margin-top: 36px;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    font-size: 13px; color: rgba(255,255,255,0.6);
+  }
+  .hero-meta .pill {
+    padding: 8px 14px; border-radius: 999px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+  }
+  .btn-ghost {
+    padding: 15px 24px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.3); color: white; text-decoration: none;
+    font-size: 14px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: background .2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+  @media (max-width: 900px) {
+    .hero { padding: 130px 22px 80px; }
+  }
+
+  /* ========= COMMON SECTION ========= */
+  section { padding: 120px 28px; position: relative; }
+  .container { max-width: var(--maxw); margin: 0 auto; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+    color: var(--purple-600); text-transform: uppercase;
+    padding: 6px 0;
+  }
+  .eyebrow .num-tag {
+    font-family: "Inter"; font-weight: 800; font-size: 11px;
+    background: var(--purple-600); color: white;
+    padding: 3px 9px; border-radius: 4px; letter-spacing: 0.05em;
+  }
+  .eyebrow.on-dark { color: var(--purple-300); }
+  .eyebrow.on-dark .num-tag { background: white; color: var(--purple-700); }
+  h2.section-title {
+    font-size: clamp(32px, 4.6vw, 56px);
+    font-weight: 900; line-height: 1.18; letter-spacing: -0.02em;
+    margin-top: 18px;
+    text-wrap: balance;
+  }
+  .section-lead {
+    margin-top: 28px; font-size: 16px; line-height: 1.95;
+    max-width: 740px; color: var(--ink-2);
+  }
+  .section-lead.on-dark { color: rgba(255,255,255,0.78); }
+
+  /* ========= SECTION 1: 課題 ========= */
+  .s-issue { background: var(--bg); }
+  .s-issue h2 mark {
+    background: var(--accent); color: var(--ink); padding: 0 .2em;
+    box-shadow: 0 0 0 4px var(--accent);
+  }
+  .issue-bullets {
+    margin-top: 48px; display: grid; gap: 14px;
+  }
+  .issue-bullets li {
+    list-style: none; position: relative;
+    padding: 18px 22px 18px 56px;
+    background: var(--bg-soft); border-radius: 12px;
+    border-left: 3px solid var(--purple-500);
+    font-size: 15px; line-height: 1.75;
+  }
+  .issue-bullets li::before {
+    content: ""; position: absolute; left: 22px; top: 28px;
+    width: 18px; height: 1px; background: var(--purple-500);
+  }
+  .issue-summary {
+    margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .issue-card {
+    padding: 36px; border-radius: var(--radius);
+    background: var(--ink); color: white; position: relative; overflow: hidden;
+  }
+  .issue-card:nth-child(2) {
+    background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+  }
+  .issue-card .label {
+    font-family: "Inter"; font-size: 11px; font-weight: 800; letter-spacing: 0.2em;
+    color: var(--purple-300);
+  }
+  .issue-card h3 {
+    margin-top: 14px; font-size: 22px; font-weight: 800; line-height: 1.5;
+  }
+  .issue-card .big-num {
+    position: absolute; right: 24px; bottom: 8px;
+    font-family: "Inter"; font-weight: 900; font-size: 120px; line-height: 1;
+    color: rgba(255,255,255,0.07); letter-spacing: -0.05em;
+  }
+  @media (max-width: 760px) {
+    .issue-summary { grid-template-columns: 1fr; }
+  }
+
+  /* ========= SECTION 2: 2つのNO ========= */
+  .s-no {
+    background: linear-gradient(180deg, var(--bg-soft) 0%, white 100%);
+  }
+  .no-grid {
+    margin-top: 56px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  }
+  .no-card {
+    background: white; border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 44px 38px;
+    position: relative; overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .no-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px -20px rgba(91,45,181,0.25); }
+  .no-card .stamp {
+    font-family: "Inter"; font-weight: 900;
+    font-size: 14px; letter-spacing: 0.15em;
+    color: white; background: var(--ink);
+    display: inline-block; padding: 6px 14px; border-radius: 4px;
+    transform: rotate(-3deg);
+  }
+  .no-card:nth-child(2) .stamp { background: var(--purple-600); }
+  .no-card h3 {
+    margin-top: 22px; font-size: 28px; font-weight: 900; line-height: 1.4;
+  }
+  .no-card .ja-sub { margin-top: 6px; color: var(--muted); font-size: 13px; font-weight: 500; }
+  .no-card p { margin-top: 22px; font-size: 14.5px; line-height: 1.95; color: var(--ink-2); }
+  .no-card .icon-frame {
+    position: absolute; top: 38px; right: 38px;
+    width: 56px; height: 56px; border-radius: 14px;
+    background: var(--purple-50); display: grid; place-items: center;
+    color: var(--purple-600);
+  }
+  @media (max-width: 760px) {
+    .no-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========= SECTION 3: 実証結果 ========= */
+  .s-proof {
+    background: var(--ink);
+    color: white;
+    position: relative; overflow: hidden;
+  }
+  .s-proof::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(800px 400px at 90% 10%, rgba(155,110,230,0.18), transparent 60%),
+      radial-gradient(700px 400px at 10% 90%, rgba(91,45,181,0.25), transparent 60%);
+    pointer-events: none;
+  }
+  .s-proof .container { position: relative; }
+  .proof-meta {
+    margin-top: 36px;
+    display: flex; gap: 24px; flex-wrap: wrap; align-items: center;
+    color: rgba(255,255,255,0.65); font-size: 13px;
+    padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .proof-meta .chip {
+    display: inline-flex; gap: 8px; align-items: center;
+  }
+  .proof-meta .chip strong { color: white; font-weight: 600; }
+  .kpi-grid {
+    margin-top: 56px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;
+    border-radius: var(--radius); overflow: hidden;
+    background: rgba(255,255,255,0.08);
+  }
+  .kpi {
+    background: var(--ink); padding: 32px 24px;
+    transition: background .25s;
+  }
+  .kpi:hover { background: var(--purple-800); }
+  .kpi .label { font-size: 11px; letter-spacing: 0.15em; color: var(--purple-300); font-weight: 600; }
+  .kpi .target { margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .kpi .target .strike {
+    text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.3);
+  }
+  .kpi .actual {
+    margin-top: 4px; display: flex; align-items: baseline; gap: 6px;
+  }
+  .kpi .actual .n {
+    font-family: "Inter"; font-weight: 900; font-size: 56px; line-height: 1; letter-spacing: -0.04em;
+    color: white;
+  }
+  .kpi .actual .unit { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .kpi .delta {
+    margin-top: 12px;
+    display: inline-flex; gap: 4px; align-items: center;
+    font-family: "Inter"; font-weight: 700; font-size: 12px;
+    color: var(--accent);
+  }
+  @media (max-width: 1000px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .kpi-grid { grid-template-columns: 1fr; } }
+
+  .voices {
+    margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  .voice {
+    padding: 36px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+  }
+  .voice .quote-mark {
+    font-family: "Inter"; font-weight: 900; font-size: 64px; line-height: 1;
+    color: var(--purple-400); margin-bottom: 8px; opacity: 0.6;
+  }
+  .voice .text {
+    font-size: 22px; font-weight: 700; line-height: 1.55;
+  }
+  .voice .meta {
+    margin-top: 18px; font-size: 12px; color: rgba(255,255,255,0.5);
+    display: flex; gap: 12px; align-items: center;
+  }
+  @media (max-width: 760px) { .voices { grid-template-columns: 1fr; } }
+
+  .venues {
+    margin-top: 56px; padding: 28px 32px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+  }
+  .venues .label { font-size: 11px; letter-spacing: 0.2em; color: var(--purple-300); font-weight: 600; }
+  .venues .list {
+    margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .venues .v {
+    padding: 8px 14px; border-radius: 8px;
+    background: rgba(255,255,255,0.06); font-size: 13px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ========= SECTION 4: コスト比較 ========= */
+  .s-cost { background: white; }
+  .cost-headline {
+    margin-top: 32px;
+    display: flex; align-items: baseline; gap: 24px; flex-wrap: wrap;
+  }
+  .cost-headline .pct {
+    font-family: "Inter"; font-weight: 900; font-size: clamp(120px, 18vw, 220px);
+    line-height: 0.85; letter-spacing: -0.06em;
+    background: linear-gradient(180deg, var(--purple-600), var(--purple-400));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .cost-headline .pct-meta {
+    font-size: 14px; color: var(--muted); max-width: 320px; line-height: 1.7;
+  }
+  .cost-headline .pct-meta strong { color: var(--ink); display: block; font-size: 18px; margin-bottom: 6px; }
+
+  .compare {
+    margin-top: 64px;
+    border-radius: var(--radius); overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .compare-row {
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .compare-row:first-child { border-top: 0; }
+  .compare-row > div { padding: 26px 28px; display: flex; flex-direction: column; justify-content: center; }
+  .compare-row .lbl-ttl { color: var(--ink); font-size: 16px; font-weight: 700; }
+  .compare-row .other { background: var(--bg-soft); }
+  .compare-row .ours { background: linear-gradient(135deg, var(--purple-50), white); position: relative; }
+  .compare-row .ours::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--purple-600);
+  }
+  .compare-row.is-header > div {
+    background: var(--ink); color: white; padding: 20px 28px;
+    font-size: 12px; letter-spacing: 0.18em; font-weight: 700;
+  }
+  .compare-row.is-header .ours { background: var(--purple-600); }
+  .compare-row.is-header .ours::before { display: none; }
+  .compare-row .v {
+    font-family: "Inter"; font-weight: 800; font-size: 28px; letter-spacing: -0.02em;
+  }
+  .compare-row .v small { font-family: "Noto Sans JP"; font-size: 13px; color: var(--muted); font-weight: 500; margin-left: 4px; }
+  .compare-row .ours .v { color: var(--purple-700); }
+  @media (max-width: 760px) {
+    .compare-row { grid-template-columns: 1fr; }
+    .compare-row > div { padding: 18px 22px; }
+    .compare-row.is-header { display: none; }
+  }
+
+  .cost-impact {
+    margin-top: 64px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .impact {
+    padding: 32px; border-radius: var(--radius);
+    background: var(--bg-soft); border: 1px solid var(--line);
+  }
+  .impact .arrow {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--purple-600); color: white;
+    display: grid; place-items: center;
+    font-family: "Inter"; font-weight: 800; font-size: 18px;
+  }
+  .impact h4 {
+    margin-top: 20px; font-size: 18px; font-weight: 800; line-height: 1.55;
+  }
+  .impact p { margin-top: 10px; font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+  @media (max-width: 800px) { .cost-impact { grid-template-columns: 1fr; } }
+
+  /* ========= SECTION 5: 生活圏PV ========= */
+  .s-flow { background: var(--bg-soft); }
+  .flow-grid {
+    margin-top: 80px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+    align-items: stretch;
+  }
+  .flow-step {
+    background: white; border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px 22px;
+    position: relative; min-height: 200px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .flow-step:nth-child(odd) { transform: translateY(-12px); }
+  .flow-step .n {
+    font-family: "Inter"; font-weight: 900; font-size: 14px;
+    color: var(--purple-600);
+  }
+  .flow-step h4 { margin-top: 14px; font-size: 17px; font-weight: 800; line-height: 1.45; }
+  .flow-step p { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
+  .flow-step .icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--purple-50); color: var(--purple-600);
+    display: grid; place-items: center;
+    margin-bottom: 14px;
+  }
+  .flow-arrow {
+    position: absolute; right: -18px; top: 50%; transform: translateY(-50%);
+    width: 20px; height: 20px; z-index: 2;
+    color: var(--purple-500);
+  }
+  .flow-step:last-child .flow-arrow { display: none; }
+  @media (max-width: 1000px) {
+    .flow-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .flow-step:nth-child(odd) { transform: none; }
+    .flow-arrow { display: none; }
+  }
+  @media (max-width: 520px) { .flow-grid { grid-template-columns: 1fr; } }
+
+  /* ========= SECTION 6: 推しマッチング ========= */
+  .s-match { background: white; }
+  .match-grid {
+    margin-top: 64px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+  }
+  .match-spec { display: grid; gap: 18px; }
+  .spec-row {
+    display: grid; grid-template-columns: 110px 1fr; gap: 24px;
+    padding: 18px 0; border-top: 1px solid var(--line);
+  }
+  .spec-row:first-child { border-top: 0; }
+  .spec-row .k { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 0.08em; padding-top: 4px; }
+  .spec-row .v { font-size: 15px; line-height: 1.75; font-weight: 500; }
+  .spec-row .v strong { font-weight: 800; color: var(--purple-700); }
+
+  .match-result {
+    background: linear-gradient(160deg, var(--purple-700), var(--purple-500));
+    border-radius: 24px; padding: 44px 40px; color: white;
+    position: relative; overflow: hidden;
+  }
+  .match-result::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 0%, rgba(255,255,255,0.18), transparent 50%);
+  }
+  .match-result h3 {
+    position: relative;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.7);
+  }
+  .match-result .nums {
+    position: relative;
+    margin-top: 24px; display: grid; gap: 28px;
+  }
+  .match-num {
+    display: flex; align-items: baseline; gap: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 22px;
+  }
+  .match-num:last-child { border-bottom: 0; padding-bottom: 0; }
+  .match-num .big {
+    font-family: "Inter"; font-weight: 900; font-size: 64px;
+    line-height: 1; letter-spacing: -0.04em;
+    min-width: 130px;
+  }
+  .match-num .desc { font-size: 14px; line-height: 1.65; opacity: 0.92; }
+  @media (max-width: 900px) { .match-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .match-apply {
+    margin-top: 80px;
+    padding: 36px 44px; border-radius: var(--radius);
+    background: var(--bg-soft); border-left: 4px solid var(--purple-600);
+  }
+  .match-apply .lbl {
+    font-family: "Inter"; font-size: 11px; font-weight: 800; letter-spacing: 0.2em;
+    color: var(--purple-700);
+  }
+  .match-apply h4 { margin-top: 8px; font-size: 22px; font-weight: 800; line-height: 1.55; }
+  .match-apply p { margin-top: 14px; font-size: 14.5px; color: var(--ink-2); line-height: 1.85; max-width: 760px; }
+
+  /* ========= SECTION 7: 共創 ========= */
+  .s-cocre {
+    background: var(--purple-900); color: white;
+    position: relative; overflow: hidden;
+  }
+  .s-cocre::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(700px 400px at 0% 100%, rgba(155,110,230,0.18), transparent 60%);
+    pointer-events: none;
+  }
+  .s-cocre .container { position: relative; }
+  .cocre-grid {
+    margin-top: 72px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .cocre-card {
+    padding: 36px 30px; border-radius: var(--radius);
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+  }
+  .cocre-card .who {
+    font-family: "Inter"; font-weight: 800; font-size: 12px; letter-spacing: 0.2em;
+    color: var(--accent);
+  }
+  .cocre-card h4 {
+    margin-top: 14px; font-size: 22px; font-weight: 800; line-height: 1.5;
+  }
+  .cocre-card ul { margin-top: 24px; display: grid; gap: 12px; }
+  .cocre-card li {
+    list-style: none; position: relative; padding-left: 22px;
+    font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.82);
+  }
+  .cocre-card li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 10px; height: 2px; background: var(--purple-300);
+  }
+  @media (max-width: 900px) { .cocre-grid { grid-template-columns: 1fr; } }
+
+  /* ========= SECTION 8: ロードマップ ========= */
+  .s-roadmap { background: white; }
+  .roadmap {
+    margin-top: 72px; position: relative;
+  }
+  .roadmap::before {
+    content: ""; position: absolute; left: 24px; top: 12px; bottom: 12px; width: 2px;
+    background: linear-gradient(180deg, var(--purple-600), var(--purple-300) 60%, var(--line));
+  }
+  .phase {
+    position: relative; padding-left: 80px; padding-bottom: 56px;
+  }
+  .phase:last-child { padding-bottom: 0; }
+  .phase .dot {
+    position: absolute; left: 14px; top: 8px;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: white; border: 4px solid var(--purple-600);
+    z-index: 2;
+  }
+  .phase.is-done .dot { background: var(--purple-600); }
+  .phase.is-now .dot {
+    background: var(--accent); border-color: var(--accent);
+    box-shadow: 0 0 0 6px rgba(255,216,77,0.25);
+  }
+  .phase-head {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .phase .tag {
+    font-family: "Inter"; font-size: 11px; font-weight: 800; letter-spacing: 0.15em;
+    padding: 5px 11px; border-radius: 4px;
+    background: var(--ink); color: white;
+  }
+  .phase.is-done .tag { background: #2da75b; }
+  .phase.is-now .tag { background: var(--accent); color: var(--ink); }
+  .phase .when {
+    font-family: "Inter"; font-weight: 600; font-size: 13px; color: var(--muted);
+  }
+  .phase .status {
+    font-size: 11px; padding: 3px 9px; border-radius: 999px;
+    background: var(--bg-soft); color: var(--muted); font-weight: 600;
+  }
+  .phase.is-done .status { background: #e6f5ec; color: #1a7c41; }
+  .phase.is-now .status { background: #fff3c2; color: #826200; }
+  .phase h3 {
+    margin-top: 14px; font-size: 26px; font-weight: 900; line-height: 1.4;
+  }
+  .phase ul { margin-top: 18px; display: grid; gap: 10px; }
+  .phase li {
+    list-style: none; padding-left: 22px; position: relative;
+    font-size: 14.5px; line-height: 1.8; color: var(--ink-2);
+  }
+  .phase li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 12px; height: 2px; background: var(--purple-500);
+  }
+  @media (max-width: 600px) {
+    .phase { padding-left: 60px; }
+    .roadmap::before { left: 14px; }
+    .phase .dot { left: 4px; }
+  }
+
+  /* ========= CTA ========= */
+  .s-cta {
+    background:
+      radial-gradient(800px 400px at 80% 100%, rgba(155,110,230,0.4), transparent 60%),
+      linear-gradient(135deg, var(--purple-800), var(--purple-600));
+    color: white; padding: 140px 28px;
+    position: relative; overflow: hidden;
+  }
+  .s-cta::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; max-width: 980px; margin: 0 auto; text-align: center; }
+  .cta-inner h2 {
+    font-size: clamp(36px, 5.6vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .cta-inner p {
+    margin-top: 32px; font-size: 16px; line-height: 1.95;
+    color: rgba(255,255,255,0.82); max-width: 700px; margin-inline: auto;
+  }
+  .cta-strong {
+    margin-top: 40px; font-size: 18px; font-weight: 700;
+    padding: 24px 32px; border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 14px; max-width: 640px; margin-inline: auto;
+    background: rgba(0,0,0,0.15);
+  }
+  .cta-strong span { color: var(--accent); }
+  .cta-actions { margin-top: 48px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* ========= FOOTER ========= */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.65);
+    padding: 56px 28px 36px;
+  }
+  .foot {
+    max-width: var(--maxw); margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap;
+  }
+  .foot .small { font-size: 12px; line-height: 1.8; }
+  .copy { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+  /* ===== Reveal animation ===== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">T</span>
+      <span class="brand-text">TROIS-RE<small>株式会社トワール</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#issue">課題</a>
+      <a href="#proof">実証結果</a>
+      <a href="#cost">コスト</a>
+      <a href="#match">推しマッチング</a>
+      <a href="#roadmap">ロードマップ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>SVリーグ × 株式会社トワール｜共創プラン提案</div>
+      <h1>
+        <span class="accent">アウェイ</span>でも、<br />
+        熱狂を、<span class="underline">地元に</span>。
+      </h1>
+      <p class="hero-sub">
+        試合の半分を占めるアウェイの日に、生活圏でファンと出会う。<br />
+        低コスト・高頻度のパブリックビューイングと「推しマッチング」で、<br />
+        観戦機会の均等化と、新規ファン獲得の仕組みをリーグに。
+      </p>
+      <div class="hero-meta">
+        <span class="pill">パブリックビューイング共創プラン</span>
+        <span class="pill">提案先：SVリーグ本部</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ SECTION 1: 課題 ============================ -->
+<section class="s-issue reveal" id="issue">
+  <div class="container">
+    <span class="eyebrow"><span class="num-tag">01</span>SVリーグが抱える2つの課題</span>
+    <h2 class="section-title">試合の半分は、<br />まだ<mark>眠っている</mark>。</h2>
+    <p class="section-lead">
+      バレーボールのリーグ戦は、ホームとアウェイがほぼ同数ある。<br />
+      ホームゲームはアリーナ動員・グッズ販売・スポンサー露出と、収益を生む設計ができている。<br />
+      しかしアウェイゲームの日、地元のファンとの接点はどれほど設計されているか。
+    </p>
+
+    <ul class="issue-bullets">
+      <li>アウェイ試合中も、地元で応援したいファンはいる。しかし公式として彼らと接点を持てる場は限られている。</li>
+      <li>アウェイに駆けつけるコアファンには届いても、ライトなファンや潜在ファンへのリーチが弱い。</li>
+      <li>リーグ全体として、年間試合数の<strong>約半分が「地元での組織的な観戦体験」として設計されていない</strong>。</li>
+    </ul>
+
+    <p class="section-lead">
+      バレーボールは「知っているけど観たことがない」スポーツとして認知度は高い。<br />
+      しかし「初めて観る人が楽しめる入口」が少なく、新規ファンの獲得が構造的に難しい。<br />
+      アリーナに来る人はすでにある程度の関心を持っている。無関心層・潜在層への接点は、ほぼ設計されていない。
+    </p>
+
+    <div class="issue-summary">
+      <div class="issue-card">
+        <div class="label">課題 01</div>
+        <h3>アウェイ試合の収益・接点機会が<br />活かしきれていない</h3>
+        <div class="big-num">01</div>
+      </div>
+      <div class="issue-card">
+        <div class="label">課題 02</div>
+        <h3>新規・潜在ファンへのリーチ手段が<br />限られている</h3>
+        <div class="big-num">02</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 2: 2つのNO ============================ -->
+<section class="s-no reveal">
+  <div class="container">
+    <span class="eyebrow"><span class="num-tag">02</span>課題の構造</span>
+    <h2 class="section-title">新規ファンになれない理由は、<br />2つある。</h2>
+    <p class="section-lead">
+      「2つのNO」として整理すると、課題の打ち手が見えてくる。
+    </p>
+
+    <div class="no-grid">
+      <div class="no-card">
+        <div class="icon-frame" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <span class="stamp">NO ACCESS</span>
+        <h3>物理的アクセスがない</h3>
+        <div class="ja-sub">No Access</div>
+        <p>既存のPVはアリーナ級の設営が前提。コストが高いため実施回数が限られ、そもそもファンが集まれる場所が少ない。</p>
+      </div>
+      <div class="no-card">
+        <div class="icon-frame" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <span class="stamp">NO EXPERIENCE</span>
+        <h3>心理的ハードルが高い</h3>
+        <div class="ja-sub">No Experience</div>
+        <p>バレーボールを初めて観る人にとって、「誰を応援すればいいか」が分からない。最初の観戦体験が薄いと、次につながらない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 3: 実証結果 ============================ -->
+<section class="s-proof reveal" id="proof">
+  <div class="container">
+    <span class="eyebrow on-dark"><span class="num-tag">03</span>刈谷市での実証結果</span>
+    <h2 class="section-title">
+      <span style="font-family:Inter;font-weight:900;">6回・10チーム・</span><br />
+      すべてのKPIを超えた。
+    </h2>
+    <p class="section-lead on-dark">
+      2026年1〜2月、愛知県刈谷市にてスポまち補助事業として実証実験を実施。<br />
+      高齢者交流プラザ・青果地方卸売市場・ハイウェイオアシス・セントラルパーク・カリココなど、<br />
+      生活圏のさまざまな場所でPVを展開した。
+    </p>
+
+    <div class="proof-meta">
+      <span class="chip">📍 <strong>愛知県刈谷市</strong></span>
+      <span class="chip">📅 <strong>2026年1〜2月</strong></span>
+      <span class="chip">📊 補助事業：<strong>スポまち</strong></span>
+      <span class="chip">👥 アンケート回答：<strong>101名</strong></span>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="label">実施回数</div>
+        <div class="target"><span class="strike">目標 2回</span></div>
+        <div class="actual"><span class="num n">6</span><span class="unit">回</span></div>
+        <div class="delta">▲ 目標300%達成</div>
+      </div>
+      <div class="kpi">
+        <div class="label">協力チーム数</div>
+        <div class="target"><span class="strike">目標 7</span></div>
+        <div class="actual"><span class="num n">10</span><span class="unit">チーム</span></div>
+        <div class="delta">▲ 目標143%達成</div>
+      </div>
+      <div class="kpi">
+        <div class="label">コンテンツ満足度</div>
+        <div class="target"><span class="strike">目標 80%</span></div>
+        <div class="actual"><span class="num n">90</span><span class="unit">%</span></div>
+        <div class="delta">▲ +10pt</div>
+      </div>
+      <div class="kpi">
+        <div class="label">次回参加意向</div>
+        <div class="target"><span class="strike">目標 80%</span></div>
+        <div class="actual"><span class="num n">93</span><span class="unit">%</span></div>
+        <div class="delta">▲ +13pt</div>
+      </div>
+      <div class="kpi">
+        <div class="label">NPS（推奨度）</div>
+        <div class="target"><span class="strike">目標 30</span></div>
+        <div class="actual"><span class="num n">65</span><span class="unit">pt</span></div>
+        <div class="delta">▲ 目標216%達成</div>
+      </div>
+    </div>
+
+    <div class="venues">
+      <div class="label">VENUES — 生活圏の会場</div>
+      <div class="list">
+        <span class="v">高齢者交流プラザ</span>
+        <span class="v">青果地方卸売市場</span>
+        <span class="v">ハイウェイオアシス</span>
+        <span class="v">セントラルパーク</span>
+        <span class="v">カリココ</span>
+      </div>
+    </div>
+
+    <div class="voices">
+      <div class="voice">
+        <div class="quote-mark">"</div>
+        <div class="text">青春を思い出した。</div>
+        <div class="meta"><span>2026.01.24</span><span>•</span><span>高齢者交流プラザ</span></div>
+      </div>
+      <div class="voice">
+        <div class="quote-mark">"</div>
+        <div class="text">みんなで応援できて楽しかった。</div>
+        <div class="meta"><span>2026.01.24</span><span>•</span><span>高齢者交流プラザ</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 4: コスト ============================ -->
+<section class="s-cost reveal" id="cost">
+  <div class="container">
+    <span class="eyebrow"><span class="num-tag">04</span>コストが安いから、回数ができる</span>
+    <h2 class="section-title">従来比、<br />最大75%削減。</h2>
+
+    <div class="cost-headline">
+      <div class="pct">−75<span style="font-size:.5em">%</span></div>
+      <div class="pct-meta">
+        <strong>1回あたりのコスト削減</strong>
+        他社実施型のPVと比較した場合の最大削減率。設置人員・時間・運営コストすべての設計を見直したことによる効果。
+      </div>
+    </div>
+
+    <div class="compare">
+      <div class="compare-row is-header">
+        <div>項目</div>
+        <div class="other">他社（従来型）</div>
+        <div class="ours">トワール</div>
+      </div>
+      <div class="compare-row">
+        <div class="lbl-ttl">設置人員</div>
+        <div class="other"><span class="v">3<small>人 / 技術者</small></span></div>
+        <div class="ours"><span class="v">2<small>人 / 一般スタッフ</small></span></div>
+      </div>
+      <div class="compare-row">
+        <div class="lbl-ttl">設置時間</div>
+        <div class="other"><span class="v">180<small>分</small></span></div>
+        <div class="ours"><span class="v">15<small>分</small></span></div>
+      </div>
+      <div class="compare-row">
+        <div class="lbl-ttl">1回あたりコスト</div>
+        <div class="other"><span class="v">80〜200<small>万円</small></span></div>
+        <div class="ours"><span class="v">20〜80<small>万円</small></span></div>
+      </div>
+    </div>
+
+    <div class="cost-impact">
+      <div class="impact">
+        <div class="arrow">→</div>
+        <h4>月1回 → 月4〜8回へ</h4>
+        <p>同一予算で、開催頻度が4〜8倍に。「いつでもPVがある街」になる。</p>
+      </div>
+      <div class="impact">
+        <div class="arrow">→</div>
+        <h4>アウェイ試合のたびに開催</h4>
+        <p>地元から離れた場所で行われる試合の日も、地元で公式応援の場がつくれる。</p>
+      </div>
+      <div class="impact">
+        <div class="arrow">→</div>
+        <h4>露出頻度が大幅向上</h4>
+        <p>チームと街の接触機会が増え、「いつでも応援できる街」としてブランド化される。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 5: 生活圏PV ============================ -->
+<section class="s-flow reveal">
+  <div class="container">
+    <span class="eyebrow"><span class="num-tag">05</span>生活圏のPVだから、新規ファンが生まれる</span>
+    <h2 class="section-title">スタジアムに来ない人を、<br />ファンにする。</h2>
+    <p class="section-lead">
+      従来のPVはすでにファンである人が集まる場所だった。<br />
+      トワールのPVは、公園・商店街・高齢者施設・卸売市場など「生活の場」に出向く。<br />
+      そこにいる人は、バレーボールのファンではない。<strong>だからこそ、新規ファン獲得の接点になる。</strong>
+    </p>
+
+    <div class="flow-grid">
+      <div class="flow-step">
+        <div>
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="n">STEP 01</div>
+          <h4>生活圏でのPVに遭遇</h4>
+        </div>
+        <p>公園・施設・市場で、偶然PVと出会う</p>
+        <svg class="flow-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
+      </div>
+      <div class="flow-step">
+        <div>
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="n">STEP 02</div>
+          <h4>「なんか楽しそう」<br />で立ち寄る</h4>
+        </div>
+        <p>偶然性と、低い心理的ハードル</p>
+        <svg class="flow-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
+      </div>
+      <div class="flow-step">
+        <div>
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="n">STEP 03</div>
+          <h4>推しマッチングで<br />選手と出会う</h4>
+        </div>
+        <p>10問で「自分に似た選手」が分かる</p>
+        <svg class="flow-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
+      </div>
+      <div class="flow-step">
+        <div>
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="n">STEP 04</div>
+          <h4>次の試合が<br />気になる</h4>
+        </div>
+        <p>選手目線で次節を待つようになる</p>
+        <svg class="flow-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
+      </div>
+      <div class="flow-step">
+        <div>
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="n">STEP 05</div>
+          <h4>リピーター化</h4>
+        </div>
+        <p>新規 → ライト → コアファンへ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 6: 推しマッチング ============================ -->
+<section class="s-match reveal" id="match">
+  <div class="container">
+    <span class="eyebrow"><span class="num-tag">06</span>推しマッチング</span>
+    <h2 class="section-title">10問答えるだけで、<br />自分に似た選手がわかる。</h2>
+    <p class="section-lead">
+      トワールの中核技術。ビッグファイブ性格特性をベースにした特許アルゴリズムが、<br />
+      観戦者の性格と選手プロフィールをマッチングする。
+    </p>
+
+    <div class="match-grid">
+      <div class="match-spec">
+        <div class="spec-row">
+          <div class="k">質問数</div>
+          <div class="v"><strong>10問</strong>（スマートフォンで約2分）</div>
+        </div>
+        <div class="spec-row">
+          <div class="k">技術ベース</div>
+          <div class="v">ビッグファイブ性格特性を用いた<strong>特許アルゴリズム</strong></div>
+        </div>
+        <div class="spec-row">
+          <div class="k">出力</div>
+          <div class="v">「あなたに似た選手」＋<br />ポジション解説／見どころ／選手メッセージ</div>
+        </div>
+        <div class="spec-row">
+          <div class="k">解決する課題</div>
+          <div class="v">初観戦者の<br />「<strong>誰を応援すればいいかわからない</strong>」を解消</div>
+        </div>
+      </div>
+
+      <div class="match-result">
+        <h3>刈谷市実証での検証結果（n=101）</h3>
+        <div class="nums">
+          <div class="match-num">
+            <div class="big num">70<span style="font-size:.5em">/70</span></div>
+            <div class="desc">初観戦者全員が参加。<br />参加率 100%。</div>
+          </div>
+          <div class="match-num">
+            <div class="big num">39<span style="font-size:.5em">人</span></div>
+            <div class="desc">初観戦者のうち、<br />「観戦の楽しさを高めるのに<br />非常に役立った」と回答。</div>
+          </div>
+          <div class="match-num">
+            <div class="big num">54<span style="font-size:.5em">人</span></div>
+            <div class="desc">「次も観に行きたい」と回答。<br />リピート意向の創出に寄与。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="match-apply">
+      <div class="lbl">SVリーグへの応用</div>
+      <h4>各チームの選手データを登録するだけ。</h4>
+      <p>
+        PVに来た初観戦者が「推し選手」を見つけ、そのままファンになる体験を設計できる。<br />
+        観戦動機が明確になり、次の試合への動線・ファンクラブ加入・グッズ購入へとつながる。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 7: 共創 ============================ -->
+<section class="s-cocre reveal">
+  <div class="container">
+    <span class="eyebrow on-dark"><span class="num-tag">07</span>SVリーグとの共創イメージ</span>
+    <h2 class="section-title">アウェイ試合を、<br />もう一つのホームゲームに。</h2>
+    <p class="section-lead on-dark">
+      リーグ／クラブ／地域、それぞれに対して提供できる価値を整理した。
+    </p>
+
+    <div class="cocre-grid">
+      <div class="cocre-card">
+        <div class="who">FOR LEAGUE</div>
+        <h4>SVリーグ本部への<br />提供価値</h4>
+        <ul>
+          <li>全チーム・全試合を通じた観戦機会の均等化</li>
+          <li>リーグ全体のファンベース拡大（特に新規・ライト層）</li>
+          <li>参加者データ（心理・行動）の蓄積による次世代ファンマーケティング基盤</li>
+        </ul>
+      </div>
+      <div class="cocre-card">
+        <div class="who">FOR CLUBS</div>
+        <h4>加盟クラブへの<br />提供価値</h4>
+        <ul>
+          <li>アウェイ試合日にも地元でブランド露出</li>
+          <li>新規ファン獲得の仕組みが自動的に動く</li>
+          <li>チームによる個別コスト負担を最小化（運営はトワールが担う）</li>
+        </ul>
+      </div>
+      <div class="cocre-card">
+        <div class="who">FOR COMMUNITIES</div>
+        <h4>地域・自治体への<br />提供価値</h4>
+        <ul>
+          <li>生活圏のスポーツ文化醸成</li>
+          <li>施設の新たな活用用途</li>
+          <li>住民の交流とウェルビーイング向上</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SECTION 8: ロードマップ ============================ -->
+<section class="s-roadmap reveal" id="roadmap">
+  <div class="container">
+    <span class="eyebrow"><span class="num-tag">08</span>展開ロードマップ</span>
+    <h2 class="section-title">実証済みの土台から、<br />リーグ全体へ。</h2>
+
+    <div class="roadmap">
+
+      <div class="phase is-done">
+        <div class="dot"></div>
+        <div class="phase-head">
+          <span class="tag">PHASE 0</span>
+          <span class="when">2026.01–02</span>
+          <span class="status">✓ 完了</span>
+        </div>
+        <h3>刈谷市実証</h3>
+        <ul>
+          <li>刈谷市 × トワールによる<strong>スポまち事業</strong>として実施</li>
+          <li><strong>6会場・10チーム参加</strong>。クインシーズ刈谷も参加チームの一つ</li>
+          <li>全KPI達成済み（実施回数300%、NPS 65 など）</li>
+        </ul>
+      </div>
+
+      <div class="phase is-now">
+        <div class="dot"></div>
+        <div class="phase-head">
+          <span class="tag">PHASE 1</span>
+          <span class="when">2026〜</span>
+          <span class="status">本提案範囲</span>
+        </div>
+        <h3>クインシーズ刈谷との専属検証</h3>
+        <ul>
+          <li>クインシーズ刈谷の<strong>アウェイ試合日</strong>に、刈谷市内でPVを定期開催</li>
+          <li>検証テーマ：アウェイ試合日のPVがチームの収益・ファン化にどう貢献するか</li>
+          <li>検証指標：グッズ販売／ファンクラブ新規加入／次ホーム試合来場率／推しマッチングからのファン転換率</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <div class="dot"></div>
+        <div class="phase-head">
+          <span class="tag">PHASE 2</span>
+          <span class="when">2027</span>
+          <span class="status">展開</span>
+        </div>
+        <h3>SVリーグ複数チームへ展開</h3>
+        <ul>
+          <li>Phase 1の検証データをもとに他クラブへ提案</li>
+          <li>リーグ公式PVプログラムとしての位置づけ検討</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <div class="dot"></div>
+        <div class="phase-head">
+          <span class="tag">PHASE 3</span>
+          <span class="when">2028〜</span>
+          <span class="status">標準装備</span>
+        </div>
+        <h3>リーグ標準装備</h3>
+        <ul>
+          <li>全チームのアウェイ試合に対応した常設PVプログラム</li>
+          <li>観戦者心理データのリーグ横断活用</li>
+          <li>地域スポンサー連携による完全自走モデル</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA ============================ -->
+<section class="s-cta" id="cta">
+  <div class="cta-inner">
+    <span class="eyebrow on-dark" style="justify-content:center;">CALL TO ACTION</span>
+    <h2>試合の半分を、<br />収益に変える時代へ。</h2>
+    <p>
+      アウェイの試合は、これまでチームにとって「稼ぎにくい日」だった。<br />
+      しかしそれは、生活圏でファンと接点を作れる日でもある。<br />
+      トワールの低コスト・高頻度PVモデルと推しマッチングは、<br />
+      その日を「新しいホームゲーム」に変える。
+    </p>
+    <div class="cta-strong">
+      私たちがSVリーグに提案するのは、<br />イベントではなく、<span>仕組み</span>です。
+    </div>
+    <div class="cta-actions">
+      <a href="#proof" class="btn-ghost">刈谷市での実証結果を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand" style="color:white;">
+        <span class="brand-mark">T</span>
+        <span class="brand-text" style="color:white;">TROIS-RE<small style="color:rgba(255,255,255,0.5);">株式会社トワール</small></span>
+      </div>
+      <div class="small" style="margin-top:18px;max-width:380px;">
+        生活圏のパブリックビューイング × 推しマッチングで、<br />スポーツの熱狂を地域に届ける会社。
+      </div>
+    </div>
+    <div class="small">
+      <div style="color:white;font-weight:700;margin-bottom:8px;">CONTACT</div>
+      <div>株式会社トワール（TROIS-RE Inc.）</div>
+      <div>contact@trois-re.co.jp</div>
+    </div>
+  </div>
+  <div style="max-width:var(--maxw);margin:36px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);" class="copy">
+    © 2026 TROIS-RE Inc. All rights reserved. | SVリーグ × トワール パブリックビューイング共創プラン
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const t = document.querySelector(id);
+        if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 60, behavior: 'smooth' }); }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
